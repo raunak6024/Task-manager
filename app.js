@@ -4,9 +4,7 @@ const app=express()
 const connectDB =require('./db/connect')
 const tasks =require('./router/route')
 require('dotenv').config()
-app.get("/hello",(req,res)=>{ // basic route for testing 
-    res.send("Hello user how are you doing")
-})
+app.use(express.static('./public')) // middleware to serve the static files 
 
 app.use(express.json())// midllewaresS
 app.use('/api/v1/tasks',tasks)//router setup 
